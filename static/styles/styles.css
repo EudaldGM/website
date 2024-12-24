@@ -1,4 +1,56 @@
-h1 {text-align: center;}
-h2 {text-align: center;}
 p {text-align: center;}
-div {text-align: center;}
+h3 {text-align: center;}
+
+.header-holder{
+    display: flex;
+    position: sticky;
+    justify-content: center;
+    align-items: center;
+}
+.header-left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 16px;
+    margin-right: 500px;
+}
+
+.header-left a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.header-left ul {
+    list-style: none;
+    display: flex;
+    margin-right: 30px;
+}
+
+.header-left ul li:first-child {
+    margin-left: 10px;
+}
+.header-left ul li {
+    margin-right: 20px;
+}
+
+.header-left a:hover {
+    color: #007BFF;       
+}
+
+.header-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.header-right a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.header-right a:hover {
+    color: #007BFF;
+}
