@@ -5,6 +5,7 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"os"
 	"path/filepath"
 )
 
@@ -17,17 +18,19 @@ func main() {
 
 func home(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path == "/" {
-		r.URL.Path = "/index.html"
+		r.URL.Path = "/index"
 	}
-	htmlFilePath := filepath.Join("static", r.URL.Path)
+	htmlFilePath := filepath.Join(fmt.Sprintf("static%s.html", r.URL.Path))
 
-	fmt.Println("static", r.URL.Path, ".html")
+	if _, err := os.Stat(htmlFilePath); os.IsNotExist(err) {
+		htmlFilePath = "static/index.html"
+	}
 	tmpl, err := template.ParseFiles(htmlFilePath)
 	if err != nil {
-		log.Println(err)
+		log.Println("file parse:", err)
 	}
 	err = tmpl.Execute(w, nil)
 	if err != nil {
-		log.Println(err)
+		log.Println("Templ.execute:", err)
 	}
 }
