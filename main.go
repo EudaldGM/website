@@ -1,44 +1,28 @@
 package main
 
 import (
-	_ "github.com/lib/pq"
+	"fmt"
 	"html/template"
 	"log"
 	"net/http"
+	"path/filepath"
 )
 
-/*var (
-	host     = os.Getenv("DBHOST")
-	port     = os.Getenv("DBPORT")
-	user     = os.Getenv("DBUSER")
-	password = os.Getenv("DBPASSWORD")
-	dbname   = os.Getenv("DBNAME")
-)*/
-
-//var Q *dbsqlc.Queries
-
 func main() {
-	//port, err := strconv.Atoi(port)
-	/*psdata := fmt.Sprintf("host=%s port=%d user=%s "+
-		"password=%s dbname=%s sslmode=disable",
-		host, port, user, password, dbname)
-	db, err := sql.Open("postgres", psdata)
-	if err != nil {
-		panic(err)
-	}
-
-	defer db.Close()
-
-	Q = dbsqlc.New(db)*/
-
 	http.HandleFunc("/", home)
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 
 	log.Fatal(http.ListenAndServe(":8080", nil))
-
 }
 
-func home(w http.ResponseWriter, _ *http.Request) {
-	tmpl, err := template.ParseFiles("HTML/index.html")
+func home(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path == "/" {
+		r.URL.Path = "/index.html"
+	}
+	htmlFilePath := filepath.Join("static", r.URL.Path)
+
+	fmt.Println("static", r.URL.Path, ".html")
+	tmpl, err := template.ParseFiles(htmlFilePath)
 	if err != nil {
 		log.Println(err)
 	}
