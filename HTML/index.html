@@ -1,19 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-<script src="https://unpkg.com/htmx.org@2.0.3"></script>
 <head>
-    <meta charset="UTF-8">
-    <title>helloworld</title>
+    <title>Thorn Design</title>
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-<form id="user-create-form">
-    name: <input type="text" name="name" id="name"><br></br>
-    <input type="submit" value="create-user" hx-post="/create-user" hx-include="user-create-form"></input>
-    <input type="submit" value="delete-user" hx-post="/delete-user" hx-include="user-create-form"></input>
-</form>
+<script src="https://unpkg.com/htmx.org@1.9.10"></script>
+<h1>THORNDESIGN</h1>
+<h2>Designing software products so you don't have to.</h2>
+<p>Stable, Scalable, Secure and Simple Software and infrastructure</p>
+<p>Optimization, hardening, support and ease of use of new and existing codebases along with useful automation and simple tooling</p>
+<p>Effective and efficient hardware ecosystem</p>
 
-<br>
-
-<button hx-get="/get-users" hx-swap="afterend">get-users</button>
 </body>
-</html>
