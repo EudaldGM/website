@@ -1,38 +1,6 @@
-<!DOCTYPE html>
-<script src="https://unpkg.com/htmx.org@2.0.4"></script>
-<head>
-    <title>Thorn Design</title>
-    <link rel="stylesheet" href="static/styles/styles.css">
-</head>
-<body>
-<div class="header-holder">
-<div class="header-left" id="myHeader">
-    <a href="/"><img src="static/img/thorndesignlogo.png" alt="ThornDesignLogo" class="logo"></a>
-    <ul>
-        <li><a href="/whythorndesign" hx-get="/whythorndesign" hx-replace-url="/whythorndesign" hx-target="#main-content"><b>Why Thorndesign</b></a></li>
-        <li class="dropdown">
-            <a class="dropbtn">Explore</a>
-            <div class="dropdown-content">
-                <a href="/explore/architecture" hx-get="/explore/architecture" hx-replace-url="/explore/architecture" hx-target="#main-content">Architecture</a>
-                <a href="/explore/codeinfra" hx-get="/explore/codeinfra" hx-replace-url="/explore/codeinfra" hx-target="#main-content">Codebase and Infrastructure</a>
-                <a href="/explore/tooling" hx-get="/explore/tooling" hx-replace-url="/explore/tooling" hx-target="#main-content">Tooling</a>
-            </div>
-        </li>
-        <li><a href="/pricing" hx-post="/pricing" hx-replace-url="/pricing" hx-target="#main-content">Pricing</a></li>
-    </ul>
-
-
-</div>
-<div class="header-right">
-    <a href="/signup" class="signup">Sign Up</a>
-    <a href="/login" class="login">Login</a>
-</div>
-</div>
-<div id="main-content">
-<script src="https://unpkg.com/htmx.org@1.9.10"></script>
+{{define "content"}}
 <h3>Designing software products so you don't have to.</h3>
-<p>Stable, Scalable, Secure and Simple Software and infrastructure</p>
-<p>Optimization, hardening, support and ease of use of new and existing codebases along with useful automation and simple tooling</p>
+<p>Stable, Scalable, Secure, and Simple Software and infrastructure</p>
+<p>Optimization, hardening, support, and ease of use of new and existing codebases along with useful automation and simple tooling</p>
 <p>Effective and efficient infrastructure ecosystem</p>
-</div>
-</body>
+{{end}}

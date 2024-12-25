@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Thorn Design</title>
+  <link rel="stylesheet" href="/static/styles/styles.css">
+  <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+</head>
+
+<body>
+<div class="header-holder">
+  <div class="header-left" id="myHeader">
+    <a href="/"><img src="static/img/thorndesignlogo.png" alt="ThornDesignLogo" class="logo"></a> <!-- should be a logo-->
+    <ul>
+      <li><a href="/whythorndesign"><b>Why Thorndesign</b></a></li>
+      <li class="dropdown">
+        <a class="dropbtn">Explore</a>
+        <div class="dropdown-content">
+          <a href="/explore/architecture">Architecture</a>
+          <a href="/explore/codeinfra">Codebase and Infra</a>
+          <a href="/explore/tooling">Tooling</a>
+        </div>
+      </li>
+      <li><a href="/pricing">Pricing</a></li>
+    </ul>
+
+
+  </div>
+  <div class="header-right">
+    <a href="/signup" class="signup">Sign Up</a>
+    <a href="/login" class="login">Login</a>
+  </div>
+</div>
+
+<div>
+  {{template "content" .}}
+</div>
+
+</body>
+</html>
